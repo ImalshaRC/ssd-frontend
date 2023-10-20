@@ -1,0 +1,65 @@
+<div class="row">
+  <div id="navHeader" class="col-12">
+    <div class="row" style="padding: 10px;">
+      <div class="col-8" style="display: flex">
+        <img src="../../assets/agri.png" width="100">
+        <div style="margin-top: 6px;text-align: center">
+          <div
+            style="font-weight: bold;font-size: 20px;margin-left: 20px;color: #e0ddd8">
+            <div class="row">
+              <div class="col-1">
+
+                GREEN
+              </div>
+              <div class="col-1" style="margin-top: 30px">
+                ARCADE
+              </div>
+              <div class="col-1" style="margin-top: 30px; margin-left: 80px; font-size:20px">
+                .
+              </div>
+              <div class="col-1" style="margin-top: 30px; font-size:25px">
+                C
+              </div>
+              <div class="col-1" style="margin-top: 30px; font-size:25px">
+                O
+              </div>
+              <div class="col-1" style="margin-top: 30px; font-size:25px">
+                M
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 80px;margin-top: 22px;color: #e0ddd8;font-size: 20px"
+             *ngIf="topic!==undefined && topic!==''">
+          <span style="border: 2px solid #e0ddd8;padding: 5px 10px;border-radius: 10px">{{topic}}</span>
+        </div>
+      </div>
+      <div class="col-4" style="display: flex;justify-content: flex-end">
+        <div style="margin-top: 14px">
+
+          <div class="alignLeft"
+               *ngIf="username!==undefined && username!==''"
+               style="padding-right: 5px;padding-top: 5px;font-weight: bold;color: #794903;font-size: 16px">
+            {{username}} |
+          </div>
+          <div class="alignLeft" routerLink="/signup"
+               *ngIf="!(username!==undefined && username!=='')"
+               style="padding-right: 5px;padding-top: 5px;font-weight: bold;color: #794903;font-size: 16px">
+            Create Account |
+          </div>
+
+          <div class="alignLeft"
+               *ngIf="username!==undefined && username!==''"
+               style="padding-top: 5px;padding-right: 10px;font-weight: bold;color: #794903;font-size: 16px;cursor: pointer"
+               (click)="accLogout()">
+            Logout
+          </div>
+          <div class="alignLeft" style="margin-left: 10px">
+            <!--<img src="../../assets/user.png" width="50">-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

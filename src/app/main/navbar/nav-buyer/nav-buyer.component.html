@@ -1,0 +1,29 @@
+<div style="padding-left: 10px;padding-top: 10px;padding-right: 10px;margin-top: 0px">
+
+  <div
+    routerLink="/main/buyer/view_items"
+    (click)="setTopic('Available Transports')"
+    #viewItems="routerLinkActive"
+    routerLinkActive
+    [ngStyle]="{'color':viewItems.isActive?'#c0050e':''}">
+    Items
+  </div>
+
+  <div
+    routerLink="/main/buyer/cart"
+    (click)="setTopic('Available Transports')"
+    #cart="routerLinkActive"
+    routerLinkActive
+    [ngStyle]="{'color':cart.isActive?'#c0050e':''}">
+    My Cart
+  </div>
+<!--  <div-->
+<!--    routerLink="/main/farmer/chat"-->
+<!--    (click)="setTopic('Chat')"-->
+<!--    #manageItems="routerLinkActive"-->
+<!--    routerLinkActive-->
+<!--    [ngStyle]="{'color':manageItems.isActive?'#c0050e':''}">-->
+<!--    Chat-->
+<!--  </div>-->
+
+</div>

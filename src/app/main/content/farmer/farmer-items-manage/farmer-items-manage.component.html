@@ -1,0 +1,74 @@
+<div class="row" style="display: flex;justify-content: center;padding: 30px">
+  <div class="col-12">
+    <span style="font-size: 25px;font-weight: bold;color: #5d5b5a">Manage Items</span>
+  </div>
+
+  <form #applicantRegistrationForm="ngForm" (ngSubmit)="applicantRegistrationForm.form.valid && onSubmit()" novalidate>
+
+    <div style="display: flex;margin-top: 50px">
+      <div style="width: 50%;padding-right: 20px">
+
+        <div class="row" style="margin-top: 20px">
+          <div class="col-4">
+            Name :
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control"
+                   [(ngModel)]="item.description"
+                   #description="ngModel"
+                   name="description">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px">
+          <div class="col-4">
+            Price :
+          </div>
+          <div class="col-8">
+            <input type="number" class="form-control"
+                   [(ngModel)]="item.price"
+                   #price="ngModel"
+                   name="price">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px">
+          <div class="col-4">
+            Quantity :
+          </div>
+          <div class="col-8">
+            <input type="number" class="form-control"
+                   [(ngModel)]="item.qty"
+                   #qty="ngModel"
+                   name="qty">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px">
+          <div class="col-4">
+            Image :
+          </div>
+          <div class="col-8">
+            <input type="file" class="form-control"
+                   (change)="onChange($event)"
+                   name="address">
+          </div>
+        </div>
+
+        <div class=""
+             style="border-top: 0px solid #dfdfdf;display: flex;margin-top: 20px;padding-top: 20px;margin-bottom: 40px">
+          <div class="col-12" style="text-align: right">
+            <button type="submit" class="btn btn-success" style="font-weight: bold;font-size: 20px">
+              {{submitType}}
+            </button>
+            <button *ngIf="submitType==='Update'" type="button" class="btn btn-danger"
+                    style="font-weight: bold;font-size: 20px;margin-left: 30px"
+                    (click)="removeItem(item)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

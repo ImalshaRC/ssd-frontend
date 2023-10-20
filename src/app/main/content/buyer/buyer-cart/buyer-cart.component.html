@@ -1,0 +1,38 @@
+<div style="border: 3px solid #aaaaaa;border-radius: 10px;margin-right: 10px">
+  <div *ngFor="let cartDetail of cartDetails;let last = last" style="margin: 10px;display: flex"
+       [ngStyle]="{'border-bottom': !last?'1px solid #aaaaaa':'','padding-bottom': !last?'10px':''}">
+    <div class="row" style="width: 100%">
+      <div class="col-4">
+        <img [src]="getImageSrc(cartDetail.item)" style="width: 100px;height: 70px">
+        <span style="margin-left: 20px">{{cartDetail.item.description}}</span>
+      </div>
+      <div class="col-3" style="padding-top: 22px">
+        <span style="font-weight: bold">Quantity :</span>
+        <span style="margin-left: 10px">{{getQty(cartDetail.quantity)}}</span>
+      </div>
+      <div class="col-3" style="padding-top: 22px">
+        <span style="font-weight: bold">Price :</span>
+        <span style="margin-left: 10px">{{(cartDetail.quantity * (cartDetail.item.price/1000)) | number:'.2-2'}}</span>
+      </div>
+      <div class="col-2" style="padding-top: 22px">
+        <button class="btn btn-danger" (click)="removeItem(cartDetail)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: right;font-weight: bold;font-size: 20px;margin-right: 20px;margin-top: 20px">
+  Total : {{total | number:'.2-2'}}
+</div>
+
+<div style="display: flex;justify-content: right;margin-right: 20px;margin-top: 20px;">
+  <span style="margin-right: 10px;margin-top: 6px">Select Delivery :</span>
+  <select class="form-control" name="deliveryType" (change)="cart.delivery.deliveryId=$any($event.target).value"
+          style="width: 100px;margin-right: 20px">
+    <option [value]="delivery.deliveryId" *ngFor="let delivery of deliveries">{{delivery.name}}</option>
+  </select>
+  <button class="btn btn-success" style="font-weight: bold;font-size: 20px"
+          (click)="purchase()">
+    Purchase
+  </button>
+</div>

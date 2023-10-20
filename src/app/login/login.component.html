@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="" style="min-height: calc(100vh - 325px)">
+  <div style="display: grid;justify-content: center;margin-top: 100px;margin-bottom: 100px">
+    <div id="loginSec" style="width: 750px;padding: 40px;border-radius: 20px">
+      <div
+        style="font-size: 28px;color: #b97700;border-bottom: 3px solid orange;padding-bottom: 10px;font-weight: bold">
+        Login
+      </div>
+<!--      <button (click)="loginWithGoogle()">Login with Google</button>-->
+      <form #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit()" novalidate>
+        <div style="margin-top: 15px">
+          <!--<div style="margin-top: 5px">Email</div>-->
+          <input class="form-control" type="text" style="width: 100%" placeholder="Email Address / User ID"
+                 [(ngModel)]="user.email"
+                 #username="ngModel"
+                 name="username" required>
+          <div *ngIf="(username.touched || loginForm.submitted) && username.errors?.required"
+               class="validErr">
+            Username is required
+          </div>
+        </div>
+        <div style="margin-top: 15px">
+          <!--<div style="margin-top: 5px">Password</div>-->
+          <input class="form-control" type="password" style="width: 100%" placeholder="Password"
+                 [(ngModel)]="user.password"
+                 #password="ngModel"
+                 name="password" required>
+          <div *ngIf="(password.touched || loginForm.submitted) && password.errors?.required"
+               class="validErr">
+            Password is required
+          </div>
+        </div>
+        <div style="display: flex">
+          <div style="margin-top: 15px;font-size: 12px;margin-left: 5px;width: 50%">
+            Forgot Password?
+          </div>
+          <div *ngIf="!logged" style="margin-top: 15px;font-size: 15px;margin-left: 5px;display: flex;justify-content: flex-end;width: 50%" class="validErr">
+            Authentication Failed
+          </div>
+        </div>
+        <div style="width: 100%;text-align: center" class="row">
+          <div class="col-6">
+            <button class="btn btn-warning" style="margin-top: 30px;font-size: 20px;font-weight: bold" type="submit">
+              Sign In
+            </button>
+          </div>
+          <div class="col-6">
+            <p class="social-login text-center">
+              <a (click)="loginGoogle()" class="ml-2">
+                <img alt="Login with Google" width="50" height="50" src="/assets/img/google.png"style="margin-top: 30px;font-size: 20px;font-weight: bold" class="btn-img">
+              </a>
+              <!--        <a href="{{ facebookURL }}">-->
+              <!--          <img alt="Login with Facebook" src="/assets/img/facebook.png" class="btn-img">-->
+              <!--        </a>-->
+              <!--        <a href="{{ githubURL }}">-->
+              <!--          <img alt="Login with Github" src="/assets/img/github.png" class="btn-img">-->
+              <!--        </a>-->
+              <!--        <a href="{{ linkedinURL }}">-->
+              <!--          <img alt="Login with Linkedin" src="/assets/img/linkedin.png" class="btn-img-linkedin">-->
+              <!--        </a>-->
+            </p>
+          </div>
+
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

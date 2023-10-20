@@ -1,0 +1,11 @@
+.alignLeft{
+  float: left;
+}
+
+#loginSec{
+  border: 5px solid;
+  border-radius: 20px;
+  border-image: linear-gradient(110deg, #5d5b5a 70%, #edae20 60%);
+  /*border-image: linear-gradient(to right, red 20%, green 20%, green 40%, blue 40%, blue 60%, maroon 60%, maroon 80%, chocolate 80%); !* gradient with required colors *!*/
+  border-image-slice: 1;
+}

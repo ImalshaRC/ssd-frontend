@@ -1,0 +1,14 @@
+<div class="row" style="padding-left: 10px">
+  <div class="col-3" *ngFor="let item of items" style="margin-top: 10px;border: 2px solid #878787;padding: 10px;margin-right: 10px;border-radius: 10px">
+    <img [src]="getImageSrc(item)" style="width: 300px;height: 150px;display:block;margin: auto">
+    <div style="font-weight: bold;margin-top: 10px;text-align: center">{{item.description}}</div>
+    <div style="margin-top: 10px">
+      <div style="width: 50%"><span style="font-weight: bold">Quantity</span> : {{getQty(item.qty)}}</div>
+      <div style="width: 50%"><span style="font-weight: bold">Price</span> : {{item.price | number:'.2-2'}}</div>
+    </div>
+    <div style="margin-top: 10px;text-align: center">
+      <!--<button class="btn btn-warning" style="margin-right: 10px;font-weight: bold">Add to cart</button>-->
+      <button class="btn btn-success" (click)="setItem(item)">Update</button>
+    </div>
+  </div>
+</div>
